@@ -1,0 +1,2 @@
+# table
+ne kockáztass
