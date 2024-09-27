@@ -1,4 +1,4 @@
-table ,tr,td{
+table ,tr,td, th{
     border-style: solid;
     border-color: black;
     border-width: 10px;
@@ -7,25 +7,18 @@ table ,tr,td{
     text-align: center;
 }
 
-table tr:not(first-child):hover { 
+tbody tr:not(first-child):hover { 
     background-color: rgba(73, 148, 2, 0.705);
-    
 
-    
 }
 
-table tr:nth-child(2):hover {
-    background-color: blue
-}
-
-table tr:first-child 
-{
-    background-color: purple;
+thead th {
+    background-color: red;
 }
 
 table tr:nth-child(2n + 1) 
 {
-    background-color: blue;
+    background-color: purple;
 }
 
     
