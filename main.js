@@ -1,22 +1,30 @@
-const array = [
+let array = [
     {
         firstname1: 'Géza',
         firstname2: 'Ferenc',
-        lastname: 'Kocsis'
+        lastname: 'Kocsis',
+        married: true,
+        pet: 'kutya'
     },
     {
         firstname1: 'Mária',
         firstname2: 'Júlia',
-        lastname: 'Horváth'
+        lastname: 'Horváth',
+        married: false,
+        pet: 'macska'
     },
     {
         firstname1: 'Ferenc',
-        lastname: 'Balogh'
+        lastname: 'Balogh',
+        married: false,
+        pet: 'teknős'
     },
     {
         firstname1: 'Gábor',
         firstname2: 'Attila',
-        lastname: 'Horváth'
+        lastname: 'Horváth',
+        married: true,
+        pet: 'macska'
     },
 ]
 
@@ -35,26 +43,34 @@ tableheadrow.appendChild(th)
 const th2 = document.createElement('th')
 tableheadrow.appendChild(th2)
 
-th.innerHTML="Veznev"
-th2.innerHTML="Kernev"
+const th3 = document.createElement('th')
+tableheadrow.appendChild(th3)
+
+const th4 = document.createElement('th')
+tableheadrow.appendChild(th4)
+
+th.innerHTML="Vezetéknév"
+th2.innerHTML="Keresztnév"
+th3.innerHTML="Házas-e"
+th4.innerHTML="Házi állat"
 th2.colSpan = 2
+
 
 const tablebody = document.createElement('tbody')
 table.appendChild(tablebody)
 for(const person of array){
     const tr = document.createElement('tr')
-    const lastname = document.createElement('td')
     tablebody.appendChild(tr)
+
+
+    const lastname = document.createElement('td')
+  
     tr.appendChild(lastname)
     lastname.innerHTML = person.lastname
+
     const firstname = document.createElement('td')
-    tablebody.appendChild(tr)
     tr.appendChild(firstname)
     firstname.innerHTML = person.firstname1
-    
-    
-    tablebody.appendChild(tr)
-    
 
     if(person.firstname2===undefined){
         firstname.colSpan = 2
@@ -63,7 +79,19 @@ for(const person of array){
         const firstname2 = document.createElement('td')
         firstname2.innerHTML = person.firstname2
         tr.appendChild(firstname2)
+    }
 
+    const married = document.createElement('td')
+    tr.appendChild(married)
+    married.innerHTML = person.married
+
+    const pet = document.createElement('td')
+    tr.appendChild(pet)
+    pet.innerHTML = person.pet
+   
+    if (person.married === true)
+    {
+        
     }
 
     tr.addEventListener('click', function(e)
@@ -86,4 +114,12 @@ for(const person of array){
         
    
 }
+
+    
+
+  
+
+    
+
+    
 
