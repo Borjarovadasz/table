@@ -85,6 +85,14 @@ for(const person of array){
     tr.appendChild(married)
     married.innerHTML = person.married
 
+    if(person.married === true)
+    {
+        married.innerHTML = 'igen'
+    }
+    else {
+        married.innerHTML = 'nem'
+    }
+
     const pet = document.createElement('td')
     tr.appendChild(pet)
     pet.innerHTML = person.pet
@@ -111,13 +119,29 @@ for(const person of array){
        
         })
 
+        const form = document.getElementById('form')
+        form.addEventListener('submit',function(e)
+        {   
+            e.preventDefault()
+            const nev = getElementById('firstname')
+            const nev2 = getElementById('firstname1')
+            const nev3 = getElementById('firstname2')
+            const married = getElementById('married')
+            const pet1 = getElementById('pet')
+
+            const nevValue = lastname.nevValue
+            const nev2Value = firstname1.nevValue
+            const nev3Value = firstname2.nevValue    
+            const marriedvalue = married.check        
+            const pet = pet.nevValue
+            
+        })
         
+  
    
 }
 
     
-
-  
 
     
 
