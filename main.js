@@ -97,6 +97,47 @@ form.addEventListener('submit',function(e){
     
 })
 
+                
+    
+
+function validatefield(lastname, firstname, pet) {
+    let result = true
+
+    if(lastname.value === '')
+    {
+    const lastna = lastname.parentElement
+    const error = lastna.querySelector('.error')
+    error.innerHTML = 'Kötelező vezetéknév!'
+    result = false
+    
+    }
+    if(firstname.value === '')
+        {
+        const firstn = firstname.parentElement
+        const error = firstn.querySelector('.error')
+        error.innerHTML = 'Kötelező keresznév!'
+        result = false
+        }
+    
+    if(pet.value === '')
+        {
+        const pet1 = pet.parentElement
+        const error = pet1.querySelector('.error')
+        error.innerHTML = 'Nincs állat'
+        result = false
+        }
+    return result
+    }
+
+function createtable(tagname, innerHTML, parentElement)
+{
+    const alpha = document.createElement(tagname)
+    alpha.innerHTML = innerHTML
+    parentElement.appendChild(alpha)
+
+
+}
+
 rendertable()
 
 function rendertable(){
