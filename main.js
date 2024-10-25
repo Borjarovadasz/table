@@ -29,13 +29,19 @@ let array = [
     },
 ]
 
-const table = document.createElement('table')
-document.body.appendChild(table)
+
+
+createHTMLElement('table', 'persontable', document.body) 
+createHTMLElement('thead', 'personthead', persontable)
+createHTMLElement('tbody', 'persontbody', personthead)
+createHTMLElement('tr', 'persontheadrow', persontbody)
+
 
 const tablehead = document.createElement('thead')
 table.appendChild(tablehead)
 
-const tableheadrow = document.createElement('tr')
+
+const tableheadrow = document.createElement('thead')
 tablehead.appendChild(tableheadrow)
 
 const th = document.createElement('th')
@@ -131,14 +137,6 @@ function validatefield(lastname, firstname, pet) {
     return result
     }
 
-function createtable(tagname, innerHTML, parentElement)
-{
-    const alpha = document.createElement(tagname)
-    alpha.innerHTML = innerHTML
-    parentElement.appendChild(alpha)
-
-
-}
 
 rendertable()
 
