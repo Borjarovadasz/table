@@ -93,11 +93,13 @@ form.addEventListener('submit',function(e){
     console.log(array)
     tablebody.innerHTML = ""
     rendertable()
+    form.reset()
+    
 
     
 })
+               
 
-                
     
 
 function validatefield(lastname, firstname, pet) {
