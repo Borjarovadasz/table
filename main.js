@@ -31,19 +31,30 @@ let array = [
 
 
 
+/*
 createHTMLElement('table', 'persontable', document.body) 
 createHTMLElement('thead', 'personthead', persontable)
 createHTMLElement('tbody', 'persontbody', personthead)
 createHTMLElement('tr', 'persontheadrow', persontbody)
+*/
 
+const table = document.createElement('table')
+document.body.appendChild(table)
 
 const tablehead = document.createElement('thead')
 table.appendChild(tablehead)
 
 
-const tableheadrow = document.createElement('thead')
+const tableheadrow = document.createElement('tr')
 tablehead.appendChild(tableheadrow)
 
+const th = createTableElement('th', 'Vezetéknév', tableheadrow)
+const th2 = createTableElement('th', 'Keszesztnév', tableheadrow)
+const th3 = createTableElement('th', 'Házas-e', tableheadrow)
+const th4 = createTableElement('th', 'Háziállat', tableheadrow)
+
+th2.colSpan = 2;
+/*
 const th = document.createElement('th')
 tableheadrow.appendChild(th)
 
@@ -55,13 +66,14 @@ tableheadrow.appendChild(th3)
 
 const th4 = document.createElement('th')
 tableheadrow.appendChild(th4)
-
-
 th.innerHTML="Veznev"
 th2.innerHTML="Kernev"
 th2.colSpan = 2
 th3.innerHTML="Házas-e"
 th4.innerHTML="Háziállat"
+
+*/
+
 
 const tablebody = document.createElement('tbody')
 table.appendChild(tablebody)
@@ -105,7 +117,13 @@ form.addEventListener('submit',function(e){
     
 })
                
-
+function createTableElement(celltag, innerHTML, parentElement)
+{
+    const  elso = document.createElement(celltag)
+    elso.innerHTML = innerHTML
+    parentElement.appendChild(elso)
+    return elso;
+}
     
 
 function validatefield(lastname, firstname, pet) {
@@ -144,11 +162,14 @@ function rendertable(){
     for(const person of array){
         const tr = document.createElement('tr')
         tablebody.appendChild(tr)
-        const lastname = document.createElement('td')
+        const lastname = createTableElement('td', person.lastname, tr)
+        const firstname = createTableElement('td', person.firstname1, tr)
+        const married = createTableElement('td', person.married ? "Igen" : "Nem", tr)
+        const pet = createTableElement('td', person.pet, tr);
         tablebody.appendChild(tr)
         tr.appendChild(lastname)
         lastname.innerHTML = person.lastname
-        const firstname = document.createElement('td')
+   
         tablebody.appendChild(tr)
         tr.appendChild(firstname)
         firstname.innerHTML = person.firstname1
@@ -178,19 +199,18 @@ function rendertable(){
         }
     
     
-        const married = document.createElement('td')
+      
         tablebody.appendChild(tr)
         tr.appendChild(married)
         married.innerHTML = person.married
     
-        if(person.married === true){ //married.innerhtml = person.married ? "igen":"nem"
+        if(person.married === true){
             married.innerHTML = "igen"
         }else{
             married.innerHTML = "nem"
         }
         
     
-        const pet = document.createElement('td')
         tablebody.appendChild(tr)
         tr.appendChild(pet)
         pet.innerHTML = person.pet
